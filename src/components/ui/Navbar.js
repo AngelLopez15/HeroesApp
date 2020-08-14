@@ -1,7 +1,9 @@
-import React from 'react'
-import {Link} from 'react-router-dom'
+import React, { useContext } from 'react'
+import {Link, useHistory} from 'react-router-dom'
 
 import img from '../../superheroe.svg'
+import { AuthContext } from '../../auth/AuthContext'
+import { types } from '../../types/types'
 
 export const Navbar = () => {
 
@@ -9,6 +11,39 @@ export const Navbar = () => {
     const hidden = () =>{
         const menu = document.querySelector('#navbarSupportedContent');
         menu.classList.toggle('none')
+    }
+
+    // Debemos extraer el Context para usarlo
+    // desestructuramos el user del Context y obtenemos el valor de la propiedad name
+    const {user:{name}, dispatch} = useContext(AuthContext)
+
+    // Funcion para manejar el Logout
+    // Pra manejar el logout primero debemos extraer el Context para usarlo
+    // extraemos el dispatch para enviar informacion al reducer
+    // const {dispatch} = useContext(AuthContext)
+
+    // Para que el boton de Logout nos regrese a la pantalla de Login no es tan facil
+    // esto sucede por que el Navbar solo es un componenete que no se encuentra dentro
+    // de los Ruoters por lo tanto no tiene acceso a la propiedad Histori de los Routers
+    // y esto impide que pueda ir a la pantalla de Login al presionarlo. Ya que estamos
+    // haciendo esto -> undefined.replace(/login) por eso nos marca un error.
+    // Para arreglar este problema podemos hacer uso de los Hooks que React-dom ya trae 
+    // implementado. Al ver el Arbol de componenetes podemos notar que existe uno que se llama
+    // Router.Provider provider lo que hace es como su nombre nos indica proveer
+    // propiedades a traves del arbol de componentes y es asi como vamos a obtener el history
+    
+    // ocupamos el hook useHistory de React-router
+    const history = useHistory ()
+
+    const handleLogout=()=>{
+
+        const action = {
+            type:types.logout,
+        }
+        
+        dispatch(action)
+
+        history.replace('/login')
     }
 
     return (
@@ -37,7 +72,11 @@ export const Navbar = () => {
                     <Link className="nav-link" to="/dc">DC</Link>
                 </li>
             </ul>
-            <Link className="btn btn-outline-success my-2 my-sm-0" to="/login">Logout</Link>
+            <p className="mb-0 pl-0 nav-item nav-link text-info">!Hola, {name}¡</p>
+            <button 
+                className="btn btn-outline-success my-2 my-sm-0"
+                onClick={handleLogout}
+            >Logout</button>
         </div>
     </nav>
     )

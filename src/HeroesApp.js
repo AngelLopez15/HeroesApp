@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react'
+import React, { useReducer, useEffect } from 'react'
 import { AppRouter } from './routers/AppRouter'
 import './index.css'
 import { AuthContext } from './auth/AuthContext'
@@ -20,6 +20,12 @@ export const HeroesApp = () => {
   // Con esto ahora tenemos la posibilidad de hacer dispatch y obtener el user
   // a lo largo de toda la aplicacion
   const [user, dispatch] = useReducer(authReducer, {}, init)
+
+  // implementando useEffect para guardar el user en el localStorage
+  // Para guardar los datos en localStorage
+  useEffect(() => {
+    localStorage.setItem('user', JSON.stringify(user))
+  }, [user])
 
   return (
     <AuthContext.Provider value={{user, dispatch}}>

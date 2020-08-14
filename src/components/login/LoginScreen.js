@@ -1,15 +1,39 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { types } from '../../types/types'
+import { AuthContext } from '../../auth/AuthContext'
 
-// history oara poder extraer las propiedades que ya viene con el router
+// history para poder extraer las propiedades que ya viene con el router
 export const LoginScreen = ({history}) => {
 
+  // Debemos extraer el Context para usarlo
+  // extraemos el dispatch
+  const {dispatch} = useContext(AuthContext)
+  
   const handleLogin =()=>{
     
     // Con push vamos a la ruta que le indicamos y se guarda la pagina anterior en el historial
     // history.push('/')
     // Con replace vamos a la ruta que le indicamos y no se guarda la pagina anterior en el historial
     // history.replace('/')
+    
+    const action = {
+      type:types.login,
+      payload:{
+        name:'Superamigo'
+      }
+    }
+    
+    dispatch(action)
+    
     history.replace('/')
+
+    // Esta es la forma de corta de hacerlo sin tener que crear el action
+    // dispatch({
+    //   type:types.login,
+    //   payload:{
+    //     name:'Superamigo'
+    //   }
+    // })
 
   }
 
