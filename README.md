@@ -4,4 +4,5 @@
 
 App para practicar react router y construir una SPA
 
-Iconos diseñados por [Pixel perfect](href="https://www.flaticon.es/autores/pixel-perfect" title="Pixel perfect) from [www.flaticon.es](href="https://www.flaticon.es/" title="Flaticon")
+Iconos diseñados por [Pixelperfect](https://www.flaticon.es/autores/pixel-perfect) from [www.flaticon.es](https://www.flaticon.es/)
+
