@@ -11,6 +11,11 @@ export const LoginScreen = ({history}) => {
   
   const handleLogin =()=>{
     
+    // con esto vamos a poder recuperar la ultima ruta visitada en nuestra app
+    // o en caso de que sea la primera vez que entra o el localStorage fue borrado
+    // entonces hay que direccionarlo al '/'
+    const lastPath = localStorage.getItem('lastPath') || '/'
+
     // Con push vamos a la ruta que le indicamos y se guarda la pagina anterior en el historial
     // history.push('/')
     // Con replace vamos a la ruta que le indicamos y no se guarda la pagina anterior en el historial
@@ -25,7 +30,11 @@ export const LoginScreen = ({history}) => {
     
     dispatch(action)
     
-    history.replace('/')
+    // Aqui ponemos la ultima ruta visitada. Esto por que si el usuario quiere
+    // entrar a una ratu protegida y no esta logeado no lo dejara entrar
+    // sin enbargo ya tendremos guardado en localStorage la ruta y asi cuando 
+    // el usuario se loggee lo llevara directamente a la pagina que queria
+    history.replace(lastPath)
 
     // Esta es la forma de corta de hacerlo sin tener que crear el action
     // dispatch({
