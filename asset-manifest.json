@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/HeroesApp/static/css/main.4e09f2d1.chunk.css",
+    "main.js": "/HeroesApp/static/js/main.2c934418.chunk.js",
+    "main.js.map": "/HeroesApp/static/js/main.2c934418.chunk.js.map",
+    "runtime-main.js": "/HeroesApp/static/js/runtime-main.6cc60b0b.js",
+    "runtime-main.js.map": "/HeroesApp/static/js/runtime-main.6cc60b0b.js.map",
+    "static/js/2.92cd6983.chunk.js": "/HeroesApp/static/js/2.92cd6983.chunk.js",
+    "static/js/2.92cd6983.chunk.js.map": "/HeroesApp/static/js/2.92cd6983.chunk.js.map",
+    "index.html": "/HeroesApp/index.html",
+    "precache-manifest.d07abdfcea6ee04628636c0075c817dc.js": "/HeroesApp/precache-manifest.d07abdfcea6ee04628636c0075c817dc.js",
+    "service-worker.js": "/HeroesApp/service-worker.js",
+    "static/css/main.4e09f2d1.chunk.css.map": "/HeroesApp/static/css/main.4e09f2d1.chunk.css.map",
+    "static/js/2.92cd6983.chunk.js.LICENSE.txt": "/HeroesApp/static/js/2.92cd6983.chunk.js.LICENSE.txt",
+    "static/media/superheroe.svg": "/HeroesApp/static/media/superheroe.a1361526.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6cc60b0b.js",
+    "static/js/2.92cd6983.chunk.js",
+    "static/css/main.4e09f2d1.chunk.css",
+    "static/js/main.2c934418.chunk.js"
+  ]
+}
