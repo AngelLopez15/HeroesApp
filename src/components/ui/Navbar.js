@@ -5,7 +5,7 @@ import img from '../../superheroe.svg'
 
 export const Navbar = () => {
 
-    // Funciones para hacer responsive el navbar
+    // Funcion para hacer funcionar el menú responsive 
     const hidden = () =>{
         const menu = document.querySelector('#navbarSupportedContent');
         menu.classList.toggle('none')
